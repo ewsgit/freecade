@@ -19,10 +19,16 @@ def compile():
                 rout = f.read()
                 for component in os.listdir("components"):
                     component = component.replace(".html", "")
+                    component_content = open(
+                        "components/" + component + ".html", "rt").read()
+                    component_content = component_content.split("<style>")[0]
+                    if component_content.split("</style>"):
+                        component_content = component_content.split(
+                            "</style>")[0]
                     rout = rout.replace("<" + component + " />",
-                                        open("components/" + component + ".html", "rt").read())
+                                        component_content)
                     rout = rout.replace("<" + component + "></" + component + ">",
-                                        open("components/" + component + ".html", "rt").read())
+                                        component_content)
                 f.close()
                 if rout.find("<FC::") != -1:
                     rout += "<div style=\"width: 100vw; height: 100vh; position: fixed; font-family: monospace; display: flex; justify-content: center; align-items: center; z-index: 99999; text-align: center; top:0; left:0; color: #fff; background: #82f;\"><h1>Undefined component(s) were inserted into html code at compile time.</h1></div>"
