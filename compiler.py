@@ -4,17 +4,14 @@
 # The compilation script for the freecade project
 
 import os
-
-import sys
 import time
-import logging
 from watchdog.observers import Observer
-from watchdog.events import LoggingEventHandler
+import watchdog.events
 
 
 def compile():
     for file in os.listdir("src"):
-        os.system("cp src/" + file + " out")
+        os.system("cp src/" + file + " out -r")
     for file in os.listdir("out"):
         if file.endswith(".html"):
             print("File: " + file)
@@ -26,9 +23,9 @@ def compile():
                                         open("components/" + component + ".html", "rt").read())
                     rout = rout.replace("<" + component + "></" + component + ">",
                                         open("components/" + component + ".html", "rt").read())
-                if rout.find("<FC::"):
-                    rout += "<div style=\"width: auto; height: auto; position: fixed; font-family: monospace; display: flex; justify-content: center; align-items: center; z-index: 99999; top:0; left:0; margin:5rem;\"><h1>Undefined Component was inserted into html code</h1></div>"
                 f.close()
+                if rout.find("<FC::") != -1:
+                    rout += "<div style=\"width: 100vw; height: 100vh; position: fixed; font-family: monospace; display: flex; justify-content: center; align-items: center; z-index: 99999; text-align: center; top:0; left:0; color: #fff; background: #82f;\"><h1>Undefined component(s) were inserted into html code at compile time.</h1></div>"
                 rout = rout.replace("\n", "")
                 rout = rout.replace("  ", "")
                 with open("out/" + file, "wt") as f:
@@ -39,15 +36,24 @@ def compile():
 compile()
 
 
-def handler():
-    print("file changed")
-    compile()
+class Handler(watchdog.events.PatternMatchingEventHandler):
+    def __init__(self):
+        # Set the patterns for PatternMatchingEventHandler
+        watchdog.events.PatternMatchingEventHandler.__init__(self, patterns=['*'],
+                                                             ignore_directories=True, case_sensitive=False)
+
+    def on_created(self, event):
+        return
+
+    def on_modified(self, event):
+        compile()
 
 
 # Initialize Observer
 observer = Observer()
-event_handler = handler()
-observer.schedule(event_handler, ".", recursive=True)
+event_handler = Handler()
+observer.schedule(event_handler, "./src/", recursive=True)
+observer.schedule(event_handler, "./components/", recursive=True)
 observer.start()
 try:
     while True:
