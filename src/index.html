@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Freecade Games</title>
+    <link href="./css/global.scss" rel="stylesheet">
+    <link href="./css/index.scss" rel="stylesheet">
+    <link href="./assets/freecade.png" rel="shortcut icon" type="image/png">
+</head>
+<body>
+<include src="./src/components/navbar.html"></include>
+<main>
+    <section class="header">
+        <svg height="1080" width="1920" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <radialGradient cx="50%" cy="50%" fx="0%" fy="100%" id="gradient" r="100%" spreadMethod="pad">
+                    <stop offset="0%" stop-color="#399308" stop-opacity="1"/>
+                    <stop offset="50%" stop-color="#227549" stop-opacity="1"/>
+                    <stop offset="100%" stop-color=#6587be" stop-opacity="1"/>
+                </radialGradient>
+            </defs>
+            <rect fill="url(#gradient)" height="100%" width="100%"/>
+        </svg>
+        <div class="text">
+            <h2>Freecade</h2>
+            <h3>An open-source online arcade</h3>
+        </div>
+    </section>
+    <include src="./src/components/footer.html"></include>
+</main>
+</body>
+</html>

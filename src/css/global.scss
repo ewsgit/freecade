@@ -1,0 +1,10 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  background: #222;
+  min-height: 100vh;
+}
+
+*:focus-visible {
+  outline: #2251df solid 0.25rem;
+}
