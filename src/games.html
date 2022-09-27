@@ -10,7 +10,7 @@
 <body>
 <include src="./components/navbar.html"></include>
 <main class="main">
-    <a class="game" href="./play.html?g=test">
+    <a class="game" game="test" aspect-ratio="16/9">
         <div>
             <img alt="" draggable="false" src="assets/freecade.svg">
             <section>
@@ -19,7 +19,7 @@
             </section>
         </div>
     </a>
-    <a class="game" href="games">
+    <a class="game" game="test">
         <div>
             <img alt="" draggable="false" src="assets/freecade.svg">
             <section>
@@ -28,7 +28,7 @@
             </section>
         </div>
     </a>
-    <a class="game" href="games">
+    <a class="game" game="test">
         <div>
             <img alt="" draggable="false" src="assets/freecade.svg">
             <section>
@@ -37,7 +37,7 @@
             </section>
         </div>
     </a>
-    <a class="game" href="games">
+    <a class="game" game="test">
         <div>
             <img alt="" draggable="false" src="assets/freecade.svg">
             <section>
@@ -46,7 +46,7 @@
             </section>
         </div>
     </a>
-    <a class="game" href="games">
+    <a class="game" game="test">
         <div>
             <img alt="" draggable="false" src="assets/freecade.svg">
             <section>
@@ -55,7 +55,7 @@
             </section>
         </div>
     </a>
-    <a class="game" href="games">
+    <a class="game" game="test">
         <div>
             <img alt="" draggable="false" src="assets/freecade.svg">
             <section>
@@ -65,5 +65,15 @@
         </div>
     </a>
 </main>
+<script>
+    document.querySelectorAll(".main > a").forEach(element => {
+        element.onclick = () => {
+            sessionStorage.setItem("current_game", JSON.stringify({
+                aspectRatio: element.getAttribute("aspect-ratio") ?? "1/1"
+            }))
+            window.location.href = "./play.html?g=" + element.getAttribute("game")
+        }
+    })
+</script>
 </body>
 </html>

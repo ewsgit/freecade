@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Freecade Games</title>
     <link href="css/global.scss" rel="stylesheet">
+    <link href="css/play.scss" rel="stylesheet">
 </head>
 <body>
 <include src="./components/navbar.html"></include>
@@ -13,6 +14,11 @@
     let src = "./games/" + query.get("g") + "/index.html"
     let frame = document.getElementById("iframe")
     frame.src = src
+
+    let config = sessionStorage.getItem("current_game")
+    if (!config) window.location.href = "./404.html"
+    config = JSON.parse(config)
+    frame.style.aspectRatio = config.aspectRatio
 </script>
 </body>
 </html>
