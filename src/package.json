@@ -2,20 +2,18 @@
   "name": "freecade",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "start": "parcel ./src/**/*.html --lazy --dist-dir './dist' -p 1234"
+    "start": "parcel ./index.html --port 1234"
   },
   "keywords": [],
   "author": "ewsgit",
   "license": "MIT",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.7.0",
-    "posthtml-include": "^1.7.4",
-    "sass": "^1.55.0"
+    "parcel": "^2.7.0",
+    "posthtml-include": "^1.7.4"
   },
   "dependencies": {
-    "parcel": "^2.7.0",
     "posthtml-doctype": "^1.1.1"
   }
 }

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Freecade Games</title>
+    <link href="css/global.scss" rel="stylesheet">
+</head>
+<body>
+<include src="./components/navbar.html"></include>
+<iframe id="iframe" src="#"></iframe>
+<script>
+    let query = new URLSearchParams(window.location.search)
+    let src = "./games/" + query.get("g") + "/index.html"
+    let frame = document.getElementById("iframe")
+    frame.src = src
+</script>
+</body>
+</html>
