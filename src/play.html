@@ -22,6 +22,7 @@
 <div class="about" id="about">
     <h1>{GAME_TITLE}</h1>
     <h2>{GAME_DESCRIPTION}</h2>
+    <a href="#">[ DEBUG ] Open Directly</a>
 </div>
 <script defer>
     let query = new URLSearchParams(window.location.search)
@@ -41,6 +42,7 @@
     controlsContainer.children[0].textContent = config.title
     aboutContainer.children[0].textContent = config.title + " - "
     aboutContainer.children[1].textContent = config.description
+    aboutContainer.children[2].href = src
 </script>
 </body>
 </html>

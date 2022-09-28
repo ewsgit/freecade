@@ -71,4 +71,11 @@ section {
   > *:first-child {
     padding-right: 0.5rem;
   }
+
+  > a {
+    margin-left: auto;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem;
+  }
 }
