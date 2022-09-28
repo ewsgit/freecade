@@ -10,7 +10,7 @@
 <body>
 <include src="./components/navbar.html"></include>
 <main class="main">
-    <a class="game" game="test" aspect-ratio="16/9">
+    <a aspect-ratio="16/9" class="game" game="test">
         <div>
             <img alt="" draggable="false" src="assets/freecade.svg">
             <section>
@@ -69,7 +69,9 @@
     document.querySelectorAll(".main > a").forEach(element => {
         element.onclick = () => {
             sessionStorage.setItem("current_game", JSON.stringify({
-                aspectRatio: element.getAttribute("aspect-ratio") ?? "1/1"
+                aspectRatio: element.getAttribute("aspect-ratio") ?? "1/1",
+                title: element.children[0].children[1].children[0].textContent,
+                description: element.children[0].children[1].children[1].textContent
             }))
             window.location.href = "./play.html?g=" + element.getAttribute("game")
         }

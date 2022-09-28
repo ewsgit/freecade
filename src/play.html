@@ -3,13 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Freecade Games</title>
-    <link href="css/global.scss" rel="stylesheet">
     <link href="css/play.scss" rel="stylesheet">
+    <link href="css/global.scss" rel="stylesheet">
 </head>
 <body>
 <include src="./components/navbar.html"></include>
-<iframe id="iframe" src="#"></iframe>
-<script>
+<section>
+    <iframe id="iframe" src="#"></iframe>
+</section>
+<div class="controls" id="controls">
+    <h1>{GAME_TITLE}</h1>
+    <div>
+        <!--        <a href="#">-->
+        <!--            <button>Maximize</button>-->
+        <!--        </a>-->
+    </div>
+</div>
+<div class="about" id="about">
+    <h1>{GAME_TITLE}</h1>
+    <h2>{GAME_DESCRIPTION}</h2>
+</div>
+<script defer>
     let query = new URLSearchParams(window.location.search)
     let src = "./games/" + query.get("g") + "/index.html"
     let frame = document.getElementById("iframe")
@@ -19,6 +33,14 @@
     if (!config) window.location.href = "./404.html"
     config = JSON.parse(config)
     frame.style.aspectRatio = config.aspectRatio
+
+    let controlsContainer = document.getElementById("controls")
+    let aboutContainer = document.getElementById("about")
+
+    // controlsContainer.children[1].children[0].href = src
+    controlsContainer.children[0].textContent = config.title
+    aboutContainer.children[0].textContent = config.title + " - "
+    aboutContainer.children[1].textContent = config.description
 </script>
 </body>
 </html>
