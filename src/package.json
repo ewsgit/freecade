@@ -15,6 +15,10 @@
     "posthtml-include": "^1.7.4"
   },
   "dependencies": {
-    "posthtml-doctype": "^1.1.1"
+    "@types/three": "^0.146.0",
+    "posthtml-doctype": "^1.1.1",
+    "prettier": "^2.8.1",
+    "three": "^0.147.0",
+    "three.js": "^0.77.1"
   }
 }
