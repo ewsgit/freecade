@@ -3,19 +3,21 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "parcel ./index.html ./games.html ./play.html ./games/**/index.html --port 1234",
-    "build": "parcel ./index.html ./games.html ./play.html ./games/**/index.html"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "keywords": [],
   "author": "ewsgit",
   "license": "MIT",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.7.0",
-    "parcel": "^2.7.0",
-    "posthtml-include": "^1.7.4"
+    "posthtml-include": "^1.7.4",
+    "vite": "^4.1.0"
   },
   "dependencies": {
     "@types/three": "^0.146.0",
+    "@vituum/vite-plugin-posthtml": "^0.1.0",
     "posthtml-doctype": "^1.1.1",
     "prettier": "^2.8.1",
     "three": "^0.147.0",
