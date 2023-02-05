@@ -3,7 +3,7 @@
     <radialGradient cx="50%" cy="50%" fx="0%" fy="100%" id="gradient" r="100%" spreadMethod="pad">
       <stop offset="0%" stop-color="#399308" stop-opacity="1" />
       <stop offset="50%" stop-color="#227549" stop-opacity="1" />
-      <stop offset="100%" stop-color=#6587be" stop-opacity="1" />
+      <stop offset="100%" stop-color="#6587be" stop-opacity="1" />
     </radialGradient>
   </defs>
   <rect fill="url(#gradient)" height="100%" width="100%" />
