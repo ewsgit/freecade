@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Freecade Games</title>
+    <title>FreeCade Games</title>
     <link href="css/play.scss" rel="stylesheet">
     <link href="css/global.scss" rel="stylesheet">
 </head>
@@ -14,9 +14,9 @@
 <div class="controls" id="controls">
     <h1>{GAME_TITLE}</h1>
     <div>
-        <!--        <a href="#">-->
-        <!--            <button>Maximize</button>-->
-        <!--        </a>-->
+        <a id="maximize" href="/games/{GAME_NAME}/index.html">
+            <button>Maximize</button>
+        </a>
     </div>
 </div>
 <div class="about" id="about">
@@ -43,6 +43,8 @@
     aboutContainer.children[0].textContent = config.title + " - "
     aboutContainer.children[1].textContent = config.description
     aboutContainer.children[2].href = src
+
+    document.getElementById("maximize").href = src
 </script>
 </body>
 </html>

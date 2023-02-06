@@ -18,7 +18,7 @@ function init() {
   scene = new THREE.Scene();
 
   const texture = new THREE.TextureLoader().load(
-    new URL("./../../assets/freecade.png", import.meta.url).toString()
+    new URL("./../../assets/freecade.svg", import.meta.url).href
   );
 
   const geometry = new THREE.BoxGeometry(-100, -100, -100);

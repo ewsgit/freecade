@@ -16,19 +16,20 @@ class Ball extends Entity {
   constructor() {
     super(engine.context);
 
-    this.velocity.y.maximum.set(10)
-    this.velocity.x.maximum.set(10)
+    this.velocity.y.maximum.set(7.5)
+    this.velocity.x.maximum.set(7.5)
     this.velocity.x.set(2.5)
-    this.position.x.set(a * 55)
+    this.position.x.set(a * 110)
     this.position.y.set(1)
-    this.index = a
+    this.velocity.y.set(1 + (0.25 * a))
+    this.index = 4 + a
     a++
   }
 
   beforeRender() {
     super.beforeRender()
     if (this.position.y.get() + this.size.height.get() < engine.screen.getHeight()) {
-      this.velocity.y.changeBy(0.01)
+      this.velocity.y.changeBy(0.1)
     } else {
       this.position.y.set(engine.screen.getHeight() - this.size.height.get())
       this.velocity.y.set(this.velocity.y.get() * -(this.index * 0.25))
@@ -43,7 +44,7 @@ class Ball extends Entity {
     }
     if (this.position.x.get() + this.size.width.get() >= engine.screen.getWidth()) {
       this.position.x.set(engine.screen.getWidth() - this.size.width.get())
-      this.velocity.x.set(this.velocity.x.get() * -(this.index * 0.25))
+      this.velocity.x.set(this.velocity.x.get() * -1)
     }
   }
 
@@ -61,7 +62,6 @@ class Ball extends Entity {
   }
 }
 
-mainMenu.addEntity(new Ball())
 mainMenu.addEntity(new Ball())
 mainMenu.addEntity(new Ball())
 mainMenu.addEntity(new Ball())
