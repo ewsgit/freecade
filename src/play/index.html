@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>FreeCade Games</title>
-    <link href="css/play.scss" rel="stylesheet">
-    <link href="css/global.scss" rel="stylesheet">
+    <link href="/css/play.scss" rel="stylesheet">
+    <link href="/css/global.scss" rel="stylesheet">
 </head>
 <body>
-<include src="./components/navbar.html"></include>
+<include src="./../components/navbar.html"></include>
 <section>
     <iframe id="iframe" src="#"></iframe>
 </section>
 <div class="controls" id="controls">
     <h1>{GAME_TITLE}</h1>
     <div>
-        <a id="maximize" href="/games/{GAME_NAME}/index.html">
+        <a id="maximize" href="/games/{GAME_NAME}/">
             <button>Maximize</button>
         </a>
     </div>
@@ -26,7 +26,7 @@
 </div>
 <script defer>
     let query = new URLSearchParams(window.location.search)
-    let src = "./games/" + query.get("g") + "/index.html"
+    let src = "/games/" + query.get("g") + "/"
     let frame = document.getElementById("iframe")
     frame.src = src
 

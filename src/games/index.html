@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Freecade Games</title>
+    <link href="/css/global.scss" rel="stylesheet">
+    <link href="/css/games.scss" rel="stylesheet">
+    <link href="/assets/freecade.png" rel="shortcut icon" type="image/png">
+</head>
+<body>
+<include src="./../components/navbar.html"></include>
+<main class="main" id="container"></main>
+<script type="module">
+    import games from "./games.json"
+
+    const container = document.getElementById("container")
+
+    games.forEach(game => {
+        container.innerHTML += `
+        <button aspect-ratio="${game.aspectRatio}" game="${game.name}">
+            <div>
+                <img alt="" draggable="false" src="/assets/freecade.svg">
+                <section>
+                    <h2>${game.displayName}</h2>
+                    <h3>${game.description}</h3>
+                </section>
+            </div>
+        </button>
+    `
+    })
+
+    document.querySelectorAll(".main > button").forEach(element => {
+        element.onclick = () => {
+            sessionStorage.setItem("current_game", JSON.stringify({
+                aspectRatio: element.getAttribute("aspect-ratio") ?? "1/1",
+                title: element.children[0].children[1].children[0].textContent,
+                description: element.children[0].children[1].children[1].textContent
+            }))
+            window.location.href = "/play/?g=" + element.getAttribute("game")
+        }
+    })
+
+</script>
+</body>
+</html>

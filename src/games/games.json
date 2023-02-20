@@ -1,0 +1,20 @@
+[
+  {
+    "name": "bouncing_balls",
+    "displayName": "Bouncing Balls Demo",
+    "description": "A demo with bouncing balls",
+    "aspectRatio": "16 / 9"
+  },
+  {
+    "name": "spiral_sprint",
+    "displayName": "Sprial Sprint",
+    "description": "run",
+    "aspectRatio": "16 / 9"
+  },
+  {
+    "name": "snake",
+    "displayName": "Snake",
+    "description": "The snake game",
+    "aspectRatio": "1 / 1"
+  }
+]

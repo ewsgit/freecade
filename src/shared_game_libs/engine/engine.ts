@@ -1,5 +1,5 @@
 import Scene from "./scene";
-import Entity from "./entity";
+import Entity from "./objects/entities/entity";
 
 export default class Engine {
   private currentScene: Scene

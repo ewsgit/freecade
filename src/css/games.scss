@@ -1,44 +1,3 @@
-.game {
-  text-decoration: none;
-
-  > div {
-    background-color: #333;
-    border-radius: 1rem;
-    display: flex;
-    padding: 0.5rem;
-    user-select: none;
-    -webkit-user-drag: none;
-
-    > img {
-      height: 5rem;
-      border-radius: 0.5rem;
-      margin-right: 0.5rem;
-    }
-
-    > section {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-
-      > * {
-        text-decoration: none;
-        margin: 0;
-        color: #fff;
-        user-select: none;
-        font-family: Arial, Helvetica, sans-serif;
-      }
-
-      h3 {
-        font-weight: 400;
-      }
-
-      h2 {
-        font-weight: 400;
-      }
-    }
-  }
-}
-
 .main {
   display: grid;
   height: auto;
@@ -48,4 +7,47 @@
   grid-template-columns: 1fr 1fr 1fr;
   padding: 1rem;
   width: calc(100% - 4rem);
+
+  > button {
+    text-decoration: none;
+    border: none;
+    background-color: transparent;
+
+    > div {
+      background-color: #333;
+      border-radius: 1rem;
+      display: flex;
+      padding: 0.5rem;
+      user-select: none;
+      -webkit-user-drag: none;
+
+      > img {
+        height: 5rem;
+        border-radius: 0.5rem;
+        margin-right: 0.5rem;
+      }
+
+      > section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        > * {
+          text-decoration: none;
+          margin: 0;
+          color: #fff;
+          user-select: none;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h3 {
+          font-weight: 400;
+        }
+
+        h2 {
+          font-weight: 400;
+        }
+      }
+    }
+  }
 }

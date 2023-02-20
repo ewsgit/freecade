@@ -1,75 +1,16 @@
-export default class Entity {
-  private x: number = 0
-  private y: number = 0
-  private width: number = 50
-  private height: number = 50
+import RenderableObject from "../../renderableObject";
+
+export default class Entity extends RenderableObject {
   private xVelocity: number = 0
   private xVelocityMaximum: number = 0
   private yVelocity: number = 0
   private yVelocityMaximum: number = 0
-  private state = {}
-  protected context: CanvasRenderingContext2D
+
   constructor(context: CanvasRenderingContext2D) {
+    super(context)
+
     this.context = context
     return this
-  }
-
-  position = {
-    x: {
-      set: (x: number): this => {
-        this.x = x
-        return this
-      },
-      get: (): number => {
-        return this.x
-      },
-      changeBy: (x: number): this => {
-        this.x += x
-        return this
-      }
-    },
-    y: {
-      set: (y: number): this => {
-        this.y = y
-        return this
-      },
-      get: (): number => {
-        return this.y
-      },
-      changeBy: (y: number): this => {
-        this.y += y
-        return this
-      }
-    },
-  }
-
-  size = {
-    width: {
-      set: (width: number): this => {
-        this.width = width
-        return this
-      },
-      get: (): number => {
-        return this.width
-      },
-      changeBy: (width: number): this => {
-        this.width += width
-        return this
-      }
-    },
-    height: {
-      set: (height: number): this => {
-        this.height = height
-        return this
-      },
-      get: (): number => {
-        return this.height
-      },
-      changeBy: (height: number): this => {
-        this.height += height
-        return this
-      }
-    },
   }
 
   velocity = {
@@ -139,20 +80,16 @@ export default class Entity {
     }
   }
 
-  createState<T>(defaultValue: T, onChange: (value: T) => void): state<T> {
-    return new state(defaultValue, onChange)
-  }
-
   beforeRender() {
-    this.x += this.xVelocity
-    this.y += this.yVelocity
+    this.position.x.changeBy(this.xVelocity)
+    this.position.y.changeBy(this.yVelocity)
 
     this.render()
   }
 
   render() {
     this.context.fillStyle = "#ff0000"
-    this.context.fillRect(this.x, this.y, this.width, this.height)
+    this.context.fillRect(this.position.x.get(), this.position.y.get(), this.size.width.get(), this.size.height.get())
   }
 }
 

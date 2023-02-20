@@ -1,5 +1,5 @@
 import Engine from "../../shared_game_libs/engine/engine";
-import Entity from "../../shared_game_libs/engine/entity";
+import Entity from "../../shared_game_libs/engine/objects/entities/entity";
 import { context } from "three/examples/jsm/nodes/shadernode/ShaderNodeBaseElements";
 
 const engine = new Engine()

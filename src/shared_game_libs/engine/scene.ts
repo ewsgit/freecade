@@ -1,4 +1,4 @@
-import Entity from "./entity";
+import Entity from "./objects/entities/entity";
 
 export default class Scene {
   entities = []
